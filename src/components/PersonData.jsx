@@ -8,8 +8,9 @@ export default function PersonDAta() {
     isStudent: false,
     gender: "",
     info: "",
+    status:'',
   });
-// gender don't work there's errorrr 
+
   const [personDatas, setPersonDatas] = useState([]);
 
 let nextId=0;
@@ -86,9 +87,14 @@ let nextId=0;
             setPersonData({ ...personData,gender:e.target.value});
           }}
         >
+          <option></option>
           <option>male</option>
           <option>female</option>
         </select>
+        <div>
+          <input type="radio" value='angry' checked={personData.status=='angry'} onChange={(e)=>{setPersonData({...personData,status:e.target.value})}}/>angry
+          <input type="radio" value='happy' checked={personData.status=='happy'} onChange={(e)=>{setPersonData({...personData,status:e.target.value})}}/>happy
+        </div>
         <hr />
         <label htmlFor="inof">Tell us about yourself</label>
         <textarea
