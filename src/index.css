@@ -1,3 +1,5 @@
+
+
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -15,24 +17,25 @@
 
 a {
   font-weight: 500;
-  color: #646cff;
+  color: #929298;
   text-decoration: inherit;
 }
 a:hover {
-  color: #535bf2;
+  color: #6a6b71;
 }
 
 body {
-  margin: 0;
+  /* margin: 0;
   display: flex;
   place-items: center;
   min-width: 320px;
-  min-height: 100vh;
+  min-height: 100vh; */
+ overflow: hidden;
 }
 
 h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+  font-size: 2.2em;
+  line-height: 1;
 }
 
 button {
@@ -42,12 +45,12 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: #7e7f84;
   cursor: pointer;
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #646cff;
+  border-color: #8b8b90;
 }
 button:focus,
 button:focus-visible {
