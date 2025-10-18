@@ -1,7 +1,11 @@
 import Popup from "./Popup";
-import { useState } from "react";
+import { use, useState } from "react";
 
 export default function LoanForm() {
+  //states
+  const [personDatas,setPersonDatas]=useState([]);
+  const [errorMessag,setErrorMessage]=useState(null)
+  const [showPopup,setShowPopup]=useState(false)
   const [personData, setPersonData] = useState({
     name: "",
     phoneNumber: "",
@@ -20,11 +24,20 @@ export default function LoanForm() {
 
   // functions
   let handleSubmit = (e) => {
+    const {age,phoneNumber}=personData;
     e.preventDefault();
+    setErrorMessage('')
+    if(age<18 || age>100 || phoneNumber.length <12 || phoneNumber.length>12){
+      setErrorMessage('The form was rejected due to invalid data❌❌')
+    }
+    setShowPopup(true)
+    setPersonDatas([...personDatas,personData]);
+    
     console.log(personData);
+    console.log(personDatas);
   };
   return (
-    <div className={"formPerant"}>
+    <div className={"formPerant"} onClick={()=>{setShowPopup(false)}}>
       <form
         className={"form flex"}
         style={{ flexDirection: "column" }}
@@ -94,9 +107,9 @@ export default function LoanForm() {
           </option>
           <option>Above than 500{currency}</option>
         </select>
-        <button disabled={btnIsDisabled}>Send</button>
+        <button disabled={btnIsDisabled}className={btnIsDisabled?'disabled':''}>Send</button>
       </form>
-      {/* <Popup/> */}
+      <Popup isVisible={showPopup} errorMessag={errorMessag}/>
     </div>
   );
 }

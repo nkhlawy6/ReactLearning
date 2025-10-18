@@ -85,5 +85,9 @@
   align-items: center;
   top: 6%;
   left: -15%;
+}
 
+.disabled{
+  cursor: not-allowed;
+  background-color: rgba(128, 128, 128, 0.625);
 }
