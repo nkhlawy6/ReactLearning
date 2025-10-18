@@ -73,7 +73,7 @@ let nextId=0;
         <input
           type="checkbox"
           id="student"
-          value={personData.isStudent}
+          checked={personData.isStudent}
           onChange={(e) => {
             setPersonData({ ...personData, isStudent: e.target.checked });
           }}
