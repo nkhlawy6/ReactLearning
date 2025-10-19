@@ -1,3 +1,4 @@
+import LoanInpu from "./LoanInput";
 import Popup from "./Popup";
 import { use, useState } from "react";
 
@@ -46,14 +47,7 @@ export default function LoanForm() {
         <h1>Requesting a loan</h1>
         <hr style={{ border: "none" }} />
         <div style={{ margin: "50px" }}>
-          <input
-            type="text"
-            placeholder="Name"
-            value={personData.name}
-            onChange={(e) => {
-              setPersonData({ ...personData, name: e.target.value });
-            }}
-          />
+          <LoanInpu Value={personData.name} setPersonData={setPersonData} personDataValue={personData}/>
           <input
             type="text"
             placeholder="Phone number"
