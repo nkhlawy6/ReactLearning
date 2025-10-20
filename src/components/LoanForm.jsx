@@ -37,6 +37,19 @@ export default function LoanForm() {
     console.log(personData);
     console.log(personDatas);
   };
+
+
+  function handleNameInput(value){
+    setPersonData({...personData,name:value})
+  }
+
+  function handlePhoneNumberInput(value){
+    setPersonData({...personData,phoneNumber:value})
+  }
+
+  function handleAgeInput(value){
+    setPersonData({...personData,age:value})
+  }
   return (
     <div className={"formPerant"} onClick={()=>{setShowPopup(false)}}>
       <form
@@ -47,23 +60,11 @@ export default function LoanForm() {
         <h1>Requesting a loan</h1>
         <hr style={{ border: "none" }} />
         <div style={{ margin: "50px" }}>
-          <LoanInpu Value={personData.name} setPersonData={setPersonData} personDataValue={personData}/>
-          <input
-            type="text"
-            placeholder="Phone number"
-            value={personData.phoneNumber}
-            onChange={(e) => {
-              setPersonData({ ...personData, phoneNumber: e.target.value });
-            }}
-          />
-          <input
-            type="text"
-            placeholder="Age"
-            value={personData.age}
-            onChange={(e) => {
-              setPersonData({ ...personData, age: e.target.value });
-            }}
-          />
+          <LoanInpu title='Name' handleInput={handleNameInput} Value={personData.name}/>
+
+          <LoanInpu title='Phone Number'handleInput={handlePhoneNumberInput} Value={personData.phoneNumber}/>
+       
+          <LoanInpu title={'Age'} handleInput={handleAgeInput} Value={personData.age}/>
         </div>
         <label
           htmlFor="isEmployee"

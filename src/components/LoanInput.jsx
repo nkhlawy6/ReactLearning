@@ -1,12 +1,13 @@
-export default function LoanInpu({Value,setPersonData,personDataValue}) {
+export default function LoanInpu({Value,handleInput,title}) {
+  console.log(Value);
   return (
     <>
       <input
         type="text"
-        placeholder="Name"
+        placeholder={title}
         value={Value}
         onChange={(e) => {
-          setPersonData({ ...personDataValue, name: e.target.value });
+          handleInput(e.target.value)
         }}
       />
     </>
