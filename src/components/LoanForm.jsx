@@ -1,9 +1,19 @@
+import axios from "axios";
 import LoanInpu from "./LoanInput";
 import Popup from "./Popup";
 import { use, useState } from "react";
 
 export default function LoanForm() {
+
+axios.get('https://jsonplaceholder.typicode.com/posts').then((posts) => {
+  
+  setPosts(posts.data)
+}).catch((err) => {
+  console.log('the Postssssss',err);
+})
   //states
+
+  const [posts,setPosts]=useState()
   const [personDatas,setPersonDatas]=useState([]);
   const [errorMessag,setErrorMessage]=useState(null)
   const [showPopup,setShowPopup]=useState(false)
@@ -22,7 +32,7 @@ export default function LoanForm() {
     personData.phoneNumber == "" ||
     personData.salary == "";
   console.log(btnIsDisabled);
-
+console.log('the postssssss',posts);
   // functions
   let handleSubmit = (e) => {
     const {age,phoneNumber}=personData;
